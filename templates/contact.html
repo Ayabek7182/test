@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+{% include 'header.html' %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина</title>
+    <style>
+        body {
+            font-family: "Montserrat", sans-serif; /* Использование шрифта Montserrat */
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0; /* Увеличение внутреннего отступа для лучшего отображения */
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease; /* Плавный переход цвета */
+        }
+
+        nav ul li a:hover {
+            color: #ffd700; /* Изменение цвета при наведении */
+        }
+
+        .container {
+            text-align: center; /* Центрирование содержимого */
+            margin-top: 50px; /* Отступ сверху для лучшего отображения */
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer a {
+            color: #ffd700; /* Установка цвета ссылок */
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline; /* Подчеркивание при наведении */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Корзина</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/catalog/">Каталог товаров</a></li>
+                <li><a href="/cart/">Корзина</a></li>
+                <li><a href="/about/">О нас</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Ваша корзина</h2>
+        <p>Ваш товар добавлен в корзину.</p>
+        <!-- Здесь разместите информацию о товарах в корзине -->
+    </div>
+
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="/faq/">FAQ</a></li>
+                <li><a href="/privacy/">Политика конфиденциальности</a></li>
+                <li><a href="/terms/">Условия использования</a></li>
+                <li><a href="/404/">Страница ошибки 404</a></li>
+            </ul>
+        </nav>
+        <p>&copy; 2024 Haso. Все права защищены. | <a href="/cart/">Ваша корзина</a></p>
+    </footer>
+</body>
+
+</html>

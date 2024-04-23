@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход или Регистрация (все по вашему желанию, милорд)</title>
+    <style>
+        body {
+            font-family: "Courier New", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7; /* Background color */
+        }
+
+        .container {
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #fff; /* Form background color */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow */
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #333; /* Button background color */
+            color: #fff; /* Button text color */
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #555; /* Button background color on hover */
+        }
+
+        .error-message {
+            color: red;
+            margin-bottom: 10px;
+        }
+
+        .register-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .register-link a {
+            color: blue; /* Color of the link */
+            text-decoration: underline; /* Underline for the link */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Вход</h2>
+       <form action="/login/" method="post">
+           {% csrf_token %}
+            {% if form.non_field_errors %}
+                <p class="error-message">{{ form.non_field_errors }}</p>
+            {% endif %}
+            <label for="id_username">Имя пользователя:</label>
+            {{ form.username }}
+            <label for="id_password">Пароль:</label>
+            {{ form.password }}
+            <input type="submit" value="Войти">
+        </form>
+        <div class="register-link">
+            <p>У вас нет аккаунта? <a href="{% url 'register' %}">Создайте его</a></p> <!-- Message with register link -->
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <!-- Здесь вы можете добавить любые другие мета-теги, стили и скрипты -->
+    <!-- Пример стилей для шапки -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Общие стили для шапки */
+        body { 
+            font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+
+  font-style: normal;
+        }
+        
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        
+        /* Стили для заголовка в шапке */
+        header h1 {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <h1>MUSIC</h1>
+        
+        <!-- Здесь можно добавить любые другие элементы шапки, такие как меню или логотип -->
+    </header>
+
+    <!-- Основное содержимое страницы -->
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
