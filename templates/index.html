@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+{% include 'header.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница - Продажа музыкальных сэмплов</title>
+    <style>
+        body {
+            font-family: "Montserrat", sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #333 url('https://github.com/Zoya255/MiniSites/blob/master/AnimalBook/img/fon.jpg?raw=true') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #ffd700;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #fff;
+        }
+
+        main {
+            padding: 120px 20px 20px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        main h2 {
+            font-size: 32px; /* Уменьшаем размер заголовка h2 */
+            margin-bottom: 20px;
+        }
+
+        main p {
+            font-size: 18px; /* Уменьшаем размер обычного текста */
+            line-height: 1.6;
+        }
+
+        .login a {
+            font-size: 14px; /* Уменьшаем размер текста для ссылки в блоке входа */
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer a {
+            color: #ffd700;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        /* Add Montserrat font */
+        .montserrat-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+    <!-- Add Montserrat font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="montserrat-font">
+        <h1>Haso</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/catalog/">Каталог товаров</a></li>
+                <li><a href="/contact/">Контакты</a></li>
+                <li><a href="/about/">О нас</a></li>
+            </ul>
+            <div class="login">
+                <ul>
+                    <li><a href="/login/">Вход или Регистрация (все по вашему желанию, милорд)</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="montserrat-font">   
+        <h2>Добро пожаловать!</h2>
+        <p>Здесь вы можете найти широкий выбор музыкальных сэмплов для вашего проекта.</p>
+    </main>
+    
+    <footer class="montserrat-font">
+        <nav>
+            <ul>
+                <li><a href="/faq/">FAQ</a></li>
+                <li><a href="/privacy/">Политика конфиденциальности</a></li>
+                <li><a href="/terms/">Условия использования</a></li>
+                <li><a href="/404/">Страница ошибки 404</a></li>
+            </ul>
+        </nav>
+        <p>&copy; 2024 Haso. Все права защищены. | <a href="/contact/">Свяжитесь с нами</a></p>
+    </footer>
+
+    <!-- Скрипт для отслеживания посещений -->
+    <script>
+        fetch('/track-visit/', { method: 'POST' });
+    </script>
+</body>
+</html>

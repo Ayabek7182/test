@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+{% include 'header.html' %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог товаров - Продажа музыкальных сэмплов</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous">
+    <style>
+        body {
+            font-family: "Montserrat", sans-serif; /* Использование шрифта Montserrat */
+            margin: 0;
+            padding: 0;
+            background: #333 url('https://sun9-18.userapi.com/impg/WejXHpChEY_26z8t8oLs8WGfdk5fuk_iBwIqEw/wX7njBhJhQQ.jpg?size=1080x1080&quality=96&sign=309b51f5344dc7763a51b60ecac34ea7&type=album') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #ffd700;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #fff;
+        }
+
+        main {
+            padding: 120px 20px 20px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        main h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        main p {
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer a {
+            color: #ffd700;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        /* Дополнительные стили для подвала */
+        footer nav ul {
+            margin-top: 10px; /* Отступ от верхнего края */
+        }
+
+        footer nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        footer nav ul li a {
+            color: #ffd700;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer nav ul li a:hover {
+            color: #fff;
+        }
+
+        /* Стили для изображений в карточках */
+        .sample-card img {
+            max-width: 50%; /* Изменен максимальный размер изображения */
+            height: auto;
+        }
+
+        /* Стили для кнопки "Купить" */
+        .buy-btn {
+            background-color: #ffd700;
+            color: #333;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .buy-btn:hover {
+            background-color: #fff;
+            color: #ffd700;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Каталог товаров</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/catalog">Каталог товаров</a></li>
+                <li><a href="/contact">Контакты</a></li>
+                <li><a href="/about">О нас</a></li>
+                <li><a href="/faq">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main">
+        <h2>Каталог товаров</h2>
+        <h3>Музыкальные сэмплы</h3>
+        <div class="sample-cards">
+            {% for sample in music_samples %}
+            {% if category_filter is None or sample.samplecategory.id == category_filter %}
+
+            <div class="sample-card">
+                <h4>{{ sample.title }}</h4>
+                <img src="/images/{{ sample.image }}" alt="{{ sample.title }}">
+                <p class="description">{{ sample.description }}</p>
+                <p class="price">Цена: ${{ sample.price }}</p>
+                <a href="/contact/" class="buy-btn">Купить</a>
+                <audio controls><source src="{{ sample.audio_file.url }}" type="audio/mpeg">Ваш браузер не
+                        поддерживает аудио элемент.</audio>
+                <p class="category">Категория: {{ sample.samplecategory.name }}</p>
+                <p class="genre">Жанр: {{ sample.genre }}</p>
+            </div>
+            {% endif %}
+            {% empty %}
+            <p>Нет доступных музыкальных сэмплов.</p>
+            {% endfor %}
+        </div>
+    </main>
+
+
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="/faq/">FAQ</a></li>
+                <li><a href="/privacy/">Политика конфиденциальности</a></li>
+                <li><a href="/terms/">Условия использования</a></li>
+                <li><a href="/404/">Страница ошибки 404</a></li>
+            </ul>
+        </nav>
+        <p>&copy; 2024 Haso. Все права защищены. | <a href="/contact/">Свяжитесь с нами</a></p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+</head>
+<body>
+    <h1>Welcome, {{ user.username }}</h1>
+    
+    <h2>Recommended Samples:</h2>
+    <ul>
+        {% for sample in recommended_samples %}
+            <li>{{ sample.title }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
