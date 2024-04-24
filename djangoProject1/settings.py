@@ -7,7 +7,11 @@ SECRET_KEY = 'django-insecure-2eb45jx38ubm^4xlsc$%_9u^zh5!go+5h@-$zg7wj01-ix&mo$
 
 DEBUG = True
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['172.20.10.3', 'localhost', '127.0.0.1']
+=======
+ALLOWED_HOSTS = ['172.20.10.3', 'localhost']  # Добавляем ваш IP-адрес в список допустимых хостов
+>>>>>>> 24b4265662801c8ea3e4748118c8d6ee6f6d9eba
 
 INSTALLED_APPS = [
     'django.contrib.admin',
